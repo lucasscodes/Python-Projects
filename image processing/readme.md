@@ -1,1 +1,1 @@
-# My files from my immage processing course.
+# My files from my image processing course.
