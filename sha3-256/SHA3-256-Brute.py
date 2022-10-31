@@ -1,7 +1,8 @@
 import hashlib
+import os
 
 #Lädt das Wörterbuch mit beliebten Passwörtern
-path ="/**/ /Top12Thousand-probable-v2.txt"
+path = os.path.join(os.path.dirname(__file__),"Top12Thousand-probable-v2.txt")
 
 #Speichert zu knackende Hashes in einer Stringliste, Format: "Name;Salt:Hash"
 ziele = ["DonaldChicken;SuperLongSpecialSalt:63e6bd0c8348f7113400ccb5d26df0565dc56c447905ed05fbc80094d5320af0",

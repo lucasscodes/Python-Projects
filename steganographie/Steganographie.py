@@ -1,4 +1,6 @@
 #Python 3.7.4
+import os.path as path
+
 bits = "" #speichert alle LeastSignificantBits
 headerRest = 54 #speichert Restlänge des Headers
 string = "" #Speichert alle interpretierten Buchstaben
@@ -8,7 +10,7 @@ byteCounter = 0 #Speichert an welcher Stelle des Bytes man ist
 #Tastet alle(1024x853) Pixel ab, dabei hat jedes Pixel 3 Bytes(RGB)
 #Header davor wird übersprungen (54Byte)
 #Speichert resultierenden LSB-Bitstring in "bits"
-for bitbyte in open(" /**/ /Stego.bmp","rb").read(): #ließt Byteweise das Bild ein
+for bitbyte in open(path.join(path.dirname(__file__),"Stego.bmp"),"rb").read(): #ließt Byteweise das Bild ein
     if headerRest<1: #wenn HeaderBytes übersprungen sind
         bits += str(bitbyte & 1) #Speicher per Bitmaske extrahiertes LSB
     else: #wenn Bytes noch zum Header gehören
