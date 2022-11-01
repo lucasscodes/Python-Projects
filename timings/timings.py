@@ -8,7 +8,7 @@ def numpyDiv(a,b):
     return numpy.divide(a,b)
 def myDiv(a,b):
     return 0
-    #TODO!
+    #TODO: Bitwise inside python
 
 def times():
     functions = [pythonDiv,numpyDiv,myDiv]
