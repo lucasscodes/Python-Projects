@@ -1,4 +1,4 @@
-# This was a jupyter notebook file from studying
+# These were jupyter-notebook files from studying
 
 # pip install gym==0.18.3
 # pip install numpy==1.20.2
