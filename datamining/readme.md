@@ -1,1 +1,1 @@
-# This was a jupyter notebook file from studying
+- These were jupyter notebooks from studying!
