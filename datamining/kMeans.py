@@ -3,7 +3,6 @@ from sklearn.datasets import load_iris
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import ipywidgets as widgets
-figure_format
 #%config InlineBackend.figure_format = 'svg' # matplotlib magic
 np.random.seed(1337) # seeds help with reproducible results
 
