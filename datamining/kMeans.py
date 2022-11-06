@@ -7,8 +7,6 @@ figure_format
 #%config InlineBackend.figure_format = 'svg' # matplotlib magic
 np.random.seed(1337) # seeds help with reproducible results
 
-#This was a jupyter notebook file from studying 
-
 iris = load_iris()
 #print(iris.keys()) => ['data', 'target', 'frame', 'target_names', 'DESCR', 'feature_names', 'filename']
 data = PCA(n_components=2).fit_transform(iris.data)
