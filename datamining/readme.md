@@ -1,4 +1,6 @@
 # These were jupyter-notebook files from studying
+- Missing are the slides+tasks, these are just solutions without explaination.
+- Not fully translated to internation english
 
 - pip install gym==0.18.3
 - pip install numpy==1.20.2

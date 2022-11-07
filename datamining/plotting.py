@@ -1,3 +1,4 @@
+#Numpy again and matplotlib
 import matplotlib.pyplot as plt
 import numpy as np #numpy will always have our back
 

@@ -1,3 +1,5 @@
+#Fashion MNIST Small Scale Visual Recognition Challenge
+
 import torch
 import torch.nn as nn
 import torchvision
@@ -6,7 +8,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 #pip install torch torchvision
 
-#Fashion MNIST Small Scale Visual Recognition Challenge
 
 # if, for some reason, you are not using a UNIX-based operating system, \
 # you might need to adjust the path arguments

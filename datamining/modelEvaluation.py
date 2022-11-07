@@ -104,6 +104,7 @@ model = trainModel(model, data, target, 50, lr = 0.01)
 accuracy = calculate_accuracy(data,target, model)
 print(f"Accuracy on training set: {accuracy*100:.2f} %")
 
+#Dont validate with traindata...rather split
 def kfold_crossvalidation(k, data, target, hidden = [10], epochs  = 50, lr = 0.01):
     accuracies = torch.zeros([k, 1], dtype=torch.float32)
     #Für jedes der k-Sets
@@ -176,8 +177,21 @@ test_target = target[120:-1]
 
 model = create_model([10])
 model = trainModel(model, training_data, training_target, 10, lr = 0.01)
+"""(tensor([[100.0000],
+        [100.0000],
+        [100.0000],
+        [ 88.8889],
+        [ 94.4444],
+        [ 88.8889],
+        [100.0000],
+        [100.0000],
+        [100.0000],
+        [100.0000]]), tensor(97.2222))"""
 
 print(confusion_matrix(test_data,test_target,model))
+""" tensor([[18,  2,  0],
+        [ 0, 23,  0],
+        [ 0,  0, 14]], dtype=torch.uint8) """
 
 """Es sind nur zwei Fehler aufgetreten, es wurden 2Sätze in Klasse-0 eingeordnet, 
    welche eigentlich in Klasse-1 gehörten. Dies waren predicted[15] & predicted[25]"""

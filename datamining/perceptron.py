@@ -1,3 +1,5 @@
+#https://en.wikipedia.org/wiki/Multilayer_perceptron
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -28,12 +30,14 @@ values = (np.random.random(150)*2)-1
 plt.scatter(values, g(values), color="black")
 plt.show()
 
+#FORWARD
 def forward_pass(activations, weights, thresholds=0):
     return g(inner_activation(activations, weights), thresholds)
 print("inputs", x, "weights", np.array([3.0,-3.0,-2.0]))
 print("innerAct", inner_activation(x, np.array([3.0,-3.0,-2.0])))
 print("output", forward_pass(x,np.array([3.0,-3.0,-2.0])))
 
+#BACKWARD Rate is the propagation hyperparameter
 def updateSingle(weights, teachers, inputs, outputs, rate=0.01):
     #w2 = w + rate*(t-y)*x
     weights = weights + rate*(teachers-outputs)*inputs
@@ -71,6 +75,7 @@ print(w)
 w = training(w,x,t)
 print(w)
 
+#Errorfunction
 def error(teachers, predicts):
     res =  .5*np.sum((teachers - predicts)**2)
     return res

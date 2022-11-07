@@ -1,3 +1,6 @@
+#https://en.wikipedia.org/wiki/Cluster_analysis
+#https://en.wikipedia.org/wiki/K-means_clustering
+
 import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.decomposition import PCA

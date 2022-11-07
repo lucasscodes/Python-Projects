@@ -1,5 +1,6 @@
-#pip install gym==0.18.3
+#Examples: https://github.com/openai/gym/tree/master/gym/envs
 
+#pip install gym==0.18.3
 import gym
 import numpy as np
 import time

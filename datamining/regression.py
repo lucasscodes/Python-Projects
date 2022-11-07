@@ -46,6 +46,7 @@ print(beta_one)
 beta_zero = y_mean-beta_one*x_mean
 print(beta_zero)
 
+#linear regression function
 def regress(x):
     return beta_zero+beta_one*x
 print(regress(8))

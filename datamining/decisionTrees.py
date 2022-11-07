@@ -1,3 +1,5 @@
+#https://en.wikipedia.org/wiki/Decision_tree_learning
+
 import math
 import numpy as np
 import matplotlib.pyplot as plt

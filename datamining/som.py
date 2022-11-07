@@ -1,4 +1,5 @@
-
+#Self organizing Map
+#https://en.wikipedia.org/wiki/Self-organizing_map
 # Load libraries
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,5 +1,5 @@
-#SARSA Algorithm
-
+#State–action–reward–state–action Algorithm
+#https://en.wikipedia.org/wiki/State-action-reward-state-action
 #pip install gym==0.18.3
 
 # import stuff
