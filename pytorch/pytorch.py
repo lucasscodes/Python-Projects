@@ -9,6 +9,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 #pip install torch torchvision
 
+print(torch.cuda.is_available())
+print(torch.cuda.current_device())
+print(torch.cuda.device(0))
+print(torch.cuda.device_count())
+print(torch.cuda.get_device_name(0))
+torch.set_default_tensor_type('torch.cuda.FloatTensor')
+
 # if, for some reason, you are not using a UNIX-based operating system, \
 # you might need to adjust the path arguments
 trainset = torchvision.datasets.FashionMNIST(root='./data', train=True,
@@ -39,14 +46,14 @@ for i in range(anzahl):
 validation_size = 10000 # set the size of your validation set
 trainset, valset = torch.utils.data.random_split(trainset, 
                                                  [len(trainset)-validation_size, validation_size], 
-                                                 generator=torch.Generator().manual_seed(1337))
+                                                 generator=torch.Generator(device='cuda').manual_seed(1337))
 
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=32,
-                                          shuffle=True)
+                                          shuffle=True, generator=torch.Generator(device='cuda').manual_seed(1337))
 testloader = torch.utils.data.DataLoader(testset, batch_size=32,
-                                         shuffle=False)
+                                         shuffle=False, generator=torch.Generator(device='cuda').manual_seed(1337))
 valloader = torch.utils.data.DataLoader(valset, batch_size=32,
-                                         shuffle=False)
+                                         shuffle=False, generator=torch.Generator(device='cuda').manual_seed(1337))
 
 model = nn.Sequential(#nn.Flatten(),
                       #nn.Linear(28*28, 20),
@@ -62,10 +69,10 @@ model = nn.Sequential(#nn.Flatten(),
                       nn.ReLU(),
                       nn.Linear(20*20, 10),     #entspricht Outputgröße
                       nn.Sigmoid()
-                      )
+                      ).to('cuda')
         
 learning_rate = 0.3
-loss = nn.CrossEntropyLoss()
+loss = nn.CrossEntropyLoss().to('cuda')
 #optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
 epochs = 17
@@ -76,6 +83,8 @@ def train(model, dataloader, optimizer, loss):
     correct = 0
     total = 0
     for img, lbl in dataloader:
+        img = img.to('cuda')
+        lbl = lbl.to('cuda')
         optimizer.zero_grad()
         out = model(img)
         logits, indices = torch.max(out, 1)
@@ -92,6 +101,8 @@ def evaluate(model, dataloader):
     correct = 0
     total = 0
     for img, lbl in dataloader:
+        img = img.to('cuda')
+        lbl = lbl.to('cuda')
         out = model(img)
         logits, indices = torch.max(out, 1)
         correct += torch.sum(indices == lbl).item()
