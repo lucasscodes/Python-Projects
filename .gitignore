@@ -2,4 +2,6 @@
 */imagenette*
 */imagewoof*
 *.tgz
+*.zip
 /data
+*/vinbigdata
